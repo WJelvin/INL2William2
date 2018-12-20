@@ -5,21 +5,17 @@ import java.util.ArrayList;
 public class Student {
 
     private String name;
-    private ArrayList<Attendance> seminarsAttended;
+    private ArrayList<Seminar> seminarsAttended = new ArrayList<>();
 
     public Student(String name) {
         this.name = name;
     }
 
-    public ArrayList getSeminarsAttended() {
-        return seminarsAttended;
-    }
-
     public void attendSeminar(Attendance attendance) {
-        seminarsAttended.add(attendance);
+        seminarsAttended.add(attendance.getSeminar());
     }
 
-    public void removeSeminar(Attendance attendance) {
-        seminarsAttended.remove(attendance);
+    public ArrayList<Seminar> getSeminarsAttended() {
+        return seminarsAttended;
     }
 }

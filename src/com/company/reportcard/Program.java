@@ -7,6 +7,7 @@ public class Program {
     private String name;
     private ArrayList<Student> studentsInProgram = new ArrayList<>();
     private ArrayList<Seminar> seminarsInProgram = new ArrayList<>();
+    private Attendance attendance = new Attendance();
 
     public Program(String name) {
         this.name = name;

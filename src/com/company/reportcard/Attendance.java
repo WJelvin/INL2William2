@@ -2,27 +2,32 @@ package com.company.reportcard;
 
 public class Attendance {
 
-    private Student attendingStudent;
-    private Seminar seminarAttended;
-    private int attendanceLevel = attendingStudent.getSeminarsAttended().size() / seminarAttended.getProgram().getSeminarsInProgram().size();
+    private AttendanceLevel attendanceLevel;
+    private Student student;
+    private Seminar seminar;
 
-    public Attendance(Student student, Seminar seminar) {
-        this.attendingStudent = student;
-        this.seminarAttended = seminar;
-        registerAttendance(seminar, student);
+    public Attendance() {
+
     }
 
     public void registerAttendance(Seminar seminar, Student student) {
-        seminar.addAttendence(this);
-        student.attendSeminar(this);
+        this.seminar = seminar;
+        this.student = student;
     }
 
     public void removeAttendance(Seminar seminar, Student student) {
-        seminar.removeAttendence(this);
-        student.removeSeminar(this);
+
     }
 
-    public Student getAttendingStudent() {
-        return attendingStudent;
+    public void setAttendanceLevel(AttendanceLevel level) {
+        attendanceLevel = level;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public Seminar getSeminar() {
+        return seminar;
     }
 }

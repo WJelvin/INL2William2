@@ -9,24 +9,35 @@ public class Seminar {
     private Teacher teacher;
     private Program program;
     private ArrayList<Subject> subjectsInSeminar = new ArrayList<>();
-    private ArrayList<Attendance> totalAttendence = new ArrayList<>();
+    private ArrayList<Attendance> attendances = new ArrayList<>();
 
     public Seminar(Teacher teacher, String name, Program program) {
         this.teacher = teacher;
         this.name = name;
         this.program = program;
+        for (int i = 0; i < program.getStudents().size(); i++) {
+            attendances.add(new Attendance());
+        }
     }
 
-    public int getTotalAttendance() {
-        return totalAttendence.size();
+    public double getTotalAttendance() {
+        double attendees = 0;
+        for (Attendance a : attendances) {
+            if ((a.getStudent()) != null) {
+                attendees++;
+            }
+        }
+        return attendees / attendances.size() * 100;
     }
 
-    public void addAttendence(Attendance attendance) {
-        totalAttendence.add(attendance);
-    }
-
-    public void removeAttendence(Attendance attendance) {
-        totalAttendence.remove(attendance);
+    public Attendance getAttendence(Seminar seminar, Student student) {
+        for (Attendance a : attendances) {
+            if (a.getStudent() == null) {
+                a.registerAttendance(seminar, student);
+                return a;
+            }
+        }
+        return null;
     }
 
     public void addSubjectToSeminar(Subject subject) {
@@ -39,5 +50,9 @@ public class Seminar {
 
     public Program getProgram() {
         return program;
+    }
+
+    public String getName() {
+        return name;
     }
 }

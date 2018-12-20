@@ -9,6 +9,7 @@ public class Teacher {
     private ArrayList<Seminar> seminarHistory = new ArrayList<>();
 
     public Teacher(String name) {
+        this.name = name;
     }
 
     public ArrayList<Seminar> getSeminarHistory() {
@@ -20,6 +21,8 @@ public class Teacher {
     }
 
     public void setCurrentSeminar(Seminar currentSeminar) {
+        if (currentSeminar != null)
+            seminarHistory.add(currentSeminar);
         this.currentSeminar = currentSeminar;
     }
 

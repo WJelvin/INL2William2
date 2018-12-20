@@ -11,4 +11,10 @@ public class Subject {
     public String viewSubjectInfo() {
         return "En kurs i " + name;
     }
+
+    public String getName() {
+        return name;
+    }
 }
+
+
