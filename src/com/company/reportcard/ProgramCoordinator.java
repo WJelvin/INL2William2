@@ -1,13 +1,13 @@
-package com.company.del2;
+package com.company.reportcard;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 
 public class ProgramCoordinator {
 
     private String name;
     private Program programCoordinated;
-    ArrayList<Teacher> teachersInProgram = new ArrayList<>();
+    private HashSet<Teacher> teachersInProgram = new HashSet<>();
 
     public ProgramCoordinator(String name, Program programCoordinated) {
         this.name = name;
