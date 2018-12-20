@@ -6,12 +6,13 @@ public class Attendance {
     private Seminar seminarAttended;
     private int attendanceLevel = attendingStudent.getSeminarsAttended().size() / seminarAttended.getProgram().getSeminarsInProgram().size();
 
-    public Attendance() {
+    public Attendance(Student student, Seminar seminar) {
+        this.attendingStudent = student;
+        this.seminarAttended = seminar;
+        registerAttendance(seminar, student);
     }
 
     public void registerAttendance(Seminar seminar, Student student) {
-        attendingStudent = student;
-        seminarAttended = seminar;
         seminar.addAttendence(this);
         student.attendSeminar(this);
     }

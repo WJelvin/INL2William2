@@ -33,4 +33,8 @@ public class Program {
     public int numberOfEnrolledStudents() {
         return studentsInProgram.size();
     }
+
+    public String getName() {
+        return name;
+    }
 }

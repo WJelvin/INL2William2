@@ -15,21 +15,10 @@ public class Seminar {
         this.teacher = teacher;
         this.name = name;
         this.program = program;
-
-        for (int i = 0; i < program.getStudents().size(); i++) {
-            totalAttendence.add(new Attendance());
-        }
-
     }
 
     public int getTotalAttendance() {
-        int attending = 0;
-        for (Attendance a : totalAttendence) {
-            if ((a.getAttendingStudent()) != null){
-                attending++;
-            }
-        }
-        return attending;
+        return totalAttendence.size();
     }
 
     public void addAttendence(Attendance attendance) {
